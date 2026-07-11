@@ -1,0 +1,12 @@
+---
+- name: Killing the running process by searching with PID
+  hosts: localhost
+  become: true
+
+
+  tasks:
+    - name: Finding running process and killing
+      shell: |
+        for pid in $(pgrep nginx);do
+          kill -15 $pid
+        done
