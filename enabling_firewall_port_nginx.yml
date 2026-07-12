@@ -1,0 +1,19 @@
+---
+- name: Enabling firewall for nginx port 
+  hosts: all
+  become: true
+
+
+  tasks:
+    - name: Installing nginx
+      apt:
+        name: nginx
+        state: present
+
+    - name: enabling firewall
+      firewalld:
+        service: http
+        port: 80/tcp
+        state: enabled
+        permanent: true
+        immediate: true

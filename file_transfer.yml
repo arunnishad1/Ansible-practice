@@ -1,0 +1,10 @@
+--- 
+- name: File transfer
+  hosts: all
+  become: true
+
+  tasks:
+    - name: transfer file
+      copy:
+        src: /root/ansible/test.txt
+        dest: /home/arun

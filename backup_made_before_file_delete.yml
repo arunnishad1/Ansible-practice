@@ -1,0 +1,12 @@
+---
+ - name: Making backup before deleting file/modification
+   hosts: all
+   become: true
+
+
+   tasks:
+     - name: making backup of file upon deletion/modification
+       copy:
+         src: /home/arun/test.txt
+         dest: /root/ansible/test.txt
+         backup: true

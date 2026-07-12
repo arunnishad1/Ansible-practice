@@ -1,0 +1,13 @@
+---
+- name: Creating user on remote server
+  hosts: all
+  become: true
+
+
+  tasks:
+    - name: Create a user
+      user:
+        name: hari
+        state: present
+        password: "{{'arun1234' | password_hash('sha512')}}"
+        shell: /bin/bash

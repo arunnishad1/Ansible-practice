@@ -1,0 +1,19 @@
+---
+- name: Creating file and directory
+  hosts: all
+  become: true
+
+
+  tasks:
+    - name: Creating file first
+      file:
+        path: /tmp/testing.txt
+        state: touch
+        owner: arun
+        group: arun
+        mode: u=rwx,g=rw,o=r
+
+    - name: Creating a directory
+      file:
+        path: /tmp/myfolder
+        state: directory
